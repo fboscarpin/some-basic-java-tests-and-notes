@@ -7,6 +7,7 @@ import java.io.*;
 
 public class FilesTest {
 
+    // there is a simpler method below
     private File writeTheTestDateFile() throws IOException {
         File outputFile = File.createTempFile("forReading", null); // null means .tmp / the result is something like forReading16535777254649642741.tmp
         PrintWriter print = new PrintWriter(
@@ -23,6 +24,7 @@ public class FilesTest {
         return outputFile;
     }
 
+    // there is a simpler method at the end of this class
     @Test
     public void outputFileToSystemOutWithBufferedReader() throws IOException {
 
@@ -127,6 +129,121 @@ public class FilesTest {
         completePath2.deleteOnExit(); // works to delete the folder (unique) you created
     }
 
+    @Test
+    public void writingFilesSimple() throws IOException {
 
+        // 1. create temp file
+        File outputFile = new File("src/main/java/com/support/", "writer_file_name.txt");
+
+        // 2. file writer
+        FileWriter writer = new FileWriter(outputFile);
+
+        // write in the file - we need to add the line breaks manually and we don't use buffer
+        writer.write("Print my first line \n");
+        writer.write("Second text \n");
+        writer.write("APPENDING THIS TEXT"); // adds a text to an existing file
+
+        writer.close();
+        outputFile.deleteOnExit(); // uncomment this to see the file
+    }
+
+    @Test
+    public void writingFilesWithBuffer() throws IOException {
+
+        // 1. create temp file
+        File outputFile = new File("src/main/java/com/support/", "file_name.txt");
+
+        // 2. file writer
+        FileWriter writer = new FileWriter(outputFile);
+
+        // 3. file buffer - write by buffer (for efficiency) - this step could be removed
+        BufferedWriter buffer = new BufferedWriter(writer);
+
+        // 4. print writer - write readable lines - we could pass "writer" instead of "buffer" as a parameter if we don't want to use buffer
+        PrintWriter print = new PrintWriter(buffer);
+
+        print.println("Print my first line");
+        print.println("Second line");
+        print.print("APPENDING THIS TEXT"); // adds a text to an existing file
+
+        print.close();
+        outputFile.deleteOnExit(); // uncomment this to see the file
+    }
+
+    @Test
+    public void simpleRead() throws IOException {
+
+        // 1. create or get the file
+        File inputFile = writeTheTestDateFile();
+
+        // 2. crete the file reader
+        FileReader reader = new FileReader(inputFile);
+
+        // 3. create buffer reader - to read efficiently (blocks of bytes)
+        BufferedReader buffer = new BufferedReader(reader);
+
+        try {
+            String line;
+            while ( (line = buffer.readLine() ) != null) { // when the line is NULL, it reached the end of the file
+                System.out.println(line);
+            }
+        } finally {
+            reader.close();
+        }
+    }
+
+    @Test
+    public void listFilesFromDirectory(){
+
+        // location will be the temp folder
+        String location = System.getProperty("java.io.tmpdir");
+        File tempFolder = new File(location);
+
+        String[] fileList = tempFolder.list();
+        for (String item:
+             fileList) {
+            System.out.println(item);
+        }
+    }
+
+    @Test
+    public void listFilesCheckAttributes(){
+        // location will be the temp folder. It could also be String location = "src/main/java/com/support/";
+        String location = System.getProperty("java.io.tmpdir");
+        File tempFolder = new File(location);
+
+        // note that now we use File[]
+        File[] fileList = tempFolder.listFiles();
+        for (File item:
+                fileList) {
+            if(item.isDirectory()){System.out.println(item.getName() + ">>> Is directory");}
+            if(item.isFile()){System.out.println(item.getName() + ">>> Is File");}
+            /*
+            We could also check the methods:
+            canRead - true if the file is readable
+            canWrite - true if the file is writable
+            canExecute true if the file is executable
+            lastModified - the last modified date as a long
+            setExecutable
+            setReadable
+            setWritable
+            setReadOnly
+            setLastModified
+             */
+        }
+    }
+
+    @Test
+    public void moveCopyMethods() throws IOException {
+
+        // create a file
+        File outputFile = new File("src/main/java/com/support/", "writer_file_name.txt");
+        FileWriter writer = new FileWriter(outputFile);
+        writer.write("Print my first line \n");
+        writer.close();
+
+        // <to do: copy and move>
+
+    }
 
 }

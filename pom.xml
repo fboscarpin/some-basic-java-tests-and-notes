@@ -18,6 +18,9 @@
         </dependency>
     </dependencies>
 
+
+<!--    test surefire and @tag-->
+
     <build>
         <plugins>
             <plugin>
