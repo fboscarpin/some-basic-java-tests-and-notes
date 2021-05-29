@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.tests.TestSum" time="0.001" errors="0" skipped="0">
+<testsuite tests="13" failures="0" name="com.tests.FilesTest" time="0.088" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.9+7-LTS"/>
@@ -64,5 +64,17 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.tests.TestSum" name="addTwoPlusTwo" time="0.001"/>
+  <testcase classname="com.tests.FilesTest" name="listFilesFromDirectory" time="0.015"/>
+  <testcase classname="com.tests.FilesTest" name="writingFilesSimple" time="0"/>
+  <testcase classname="com.tests.FilesTest" name="creatingDirectoriesTemp" time="0.025"/>
+  <testcase classname="com.tests.FilesTest" name="moveCopyMethods" time="0.001"/>
+  <testcase classname="com.tests.FilesTest" name="simpleRead" time="0.015"/>
+  <testcase classname="com.tests.FilesTest" name="outputFileToSystemOutWithBufferedReader" time="0.001"/>
+  <testcase classname="com.tests.FilesTest" name="listFilesCheckAttributes" time="0.023"/>
+  <testcase classname="com.tests.FilesTest" name="basicFileCreationAndExistsMethod" time="0"/>
+  <testcase classname="com.tests.FilesTest" name="writingFilesWithBuffer" time="0"/>
+  <testcase classname="com.tests.FilesTest" name="createTmpFile" time="0"/>
+  <testcase classname="com.tests.FilesTest" name="creatingDirectories" time="0.008"/>
+  <testcase classname="com.tests.FilesTest" name="listRootsMethod" time="0"/>
+  <testcase classname="com.tests.FilesTest" name="getMethods" time="0"/>
 </testsuite>

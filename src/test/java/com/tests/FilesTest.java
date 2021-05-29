@@ -39,6 +39,7 @@ public class FilesTest {
         } finally {
             reader.close();
         }
+        inputFile.deleteOnExit();
     }
 
     @Test
@@ -70,6 +71,7 @@ public class FilesTest {
 
         myFile.createNewFile();
         Assert.assertTrue(myFile.exists());
+        myFile.deleteOnExit();
 
         //delete the file manually if needed. It's not needed here because we used deleteOnExist() previously
 //        myFile.delete();
@@ -101,6 +103,7 @@ public class FilesTest {
         System.out.println(dirStructure);
 
         completePath.mkdirs();
+        completePath.deleteOnExit();
 //        completePath.mkdir(); this will not work because it does not create sub-directories
     }
 
@@ -190,6 +193,7 @@ public class FilesTest {
         } finally {
             reader.close();
         }
+        inputFile.deleteOnExit();
     }
 
     @Test
@@ -204,6 +208,7 @@ public class FilesTest {
              fileList) {
             System.out.println(item);
         }
+        tempFolder.deleteOnExit();
     }
 
     @Test
@@ -231,6 +236,7 @@ public class FilesTest {
             setLastModified
              */
         }
+        tempFolder.deleteOnExit();
     }
 
     @Test
@@ -241,6 +247,7 @@ public class FilesTest {
         FileWriter writer = new FileWriter(outputFile);
         writer.write("Print my first line \n");
         writer.close();
+        outputFile.deleteOnExit();
 
         // <to do: copy and move>
 

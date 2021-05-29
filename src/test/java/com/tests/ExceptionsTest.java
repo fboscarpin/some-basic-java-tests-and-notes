@@ -1,6 +1,8 @@
 package com.tests;
 
-import org.junit.Test;
+import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
+
 
 public class ExceptionsTest {
 
@@ -19,6 +21,7 @@ public class ExceptionsTest {
         }
     }
 
+    @Ignore
     @Test
     public void throwExceptionMethodA() {
 
