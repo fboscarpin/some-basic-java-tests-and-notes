@@ -18,7 +18,7 @@ Add maven compiler plugin:
         </plugins>
     </build>
     
-    Alternatively, add mave surefire plugin:
+Alternatively, add mave surefire plugin:
     
         <build>
         <pluginManagement>
