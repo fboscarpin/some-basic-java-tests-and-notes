@@ -49,12 +49,23 @@ Alternatively, add mave surefire plugin:
 
 Create and print HashMap
 
-        HashMap<Integer,String> map = new HashMap<>();
-        map.put(01, "Apartment");
-        map.put(02, "House");
-        map.put(03, "Hotel");
-        map.put(04, "Apart-Hotel");
-        map.put(05, "Parent's house");
+    HashMap<Integer,String> map = new HashMap<>();
+    map.put(01, "Apartment");
+    map.put(02, "House");
+    map.put(03, "Hotel");
+    map.put(04, "Apart-Hotel");
+    map.put(05, "Parent's house");
+    
+    System.out.println(map);
+    map.forEach((k, v) -> System.out.println("Key:"+k + " / Value:"+v));
 
-        System.out.println(map);
-        map.forEach((k, v) -> System.out.println("Key:"+k + " / Value:"+v));
+**Selenium**
+
+Import the following dependency:
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+

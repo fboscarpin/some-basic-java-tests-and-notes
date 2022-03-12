@@ -3,6 +3,7 @@ package supportMethods;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class supportFiles {
 
@@ -24,6 +25,25 @@ public class supportFiles {
             e.printStackTrace();
         }
         return userDetailsArray;
+    }
+
+    public static String returnTextFile(String path){
+
+        String text = "";
+        
+        try {
+            FileReader fr = new FileReader(path);
+            BufferedReader br = new BufferedReader(fr);
+            String lines;
+            while ((lines = br.readLine())!=null) {
+                text = text + lines;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return text;
     }
 
 
