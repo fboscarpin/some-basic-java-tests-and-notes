@@ -36,9 +36,11 @@ Alternatively, add mave surefire plugin:
 **Strings** 
 
 // get first character of string
-    char c = text.charAt(0);
+
+        char c = text.charAt(0);
     
 // get the last character of a string
-    Integer lastLatterIndex = text.length() - 1;
-    char c = text.charAt(lastLatterIndex);
-    System.out.println("Last letter is: " + c);
+
+        Integer lastLatterIndex = text.length() - 1;
+        char c = text.charAt(lastLatterIndex);
+        System.out.println("Last letter is: " + c);
