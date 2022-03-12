@@ -1,4 +1,4 @@
-package com.support;
+package supportMethods;
 
 public class User {
 

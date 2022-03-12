@@ -1,4 +1,4 @@
-package com.support;
+package supportMethods;
 
 public class TestAppEnv {
     public static final String DOMAIN = "192.123.0.3";

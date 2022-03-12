@@ -1,6 +1,6 @@
 package com.tests;
 
-import com.support.TestAppEnv;
+import supportMethods.TestAppEnv;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals; // static import
 

@@ -1,7 +1,7 @@
 package com.tests;
 
-import com.support.User;
-import com.support.UserComparator;
+import supportMethods.User;
+import supportMethods.UserComparator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
