@@ -1,7 +1,7 @@
 package new2022;
 
 import org.junit.jupiter.api.Test;
-import supportMethods.supportFiles;
+import supportMethods.SupportFilesUsers;
 
 public class UsersFileTest {
 
@@ -9,7 +9,7 @@ public class UsersFileTest {
     public void printUsers(){
 
         // What this test does: get users from a csv file and print them
-        supportFiles support = new supportFiles(); // needs to instantiate because my method is not static
+        SupportFilesUsers support = new SupportFilesUsers(); // needs to instantiate because my method is not static
         support.returnUsersCSV(2);
         String [] users = support.returnUsersCSV(2);
         System.out.println("User: " + users[0].trim());

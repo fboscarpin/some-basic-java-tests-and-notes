@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class seleniumSupport {
+public class SeleniumSupport {
 
     public static WebDriver getDriver(){
         System.setProperty("webdriver.chrome.driver","/Users/fabio/Documents/Chromedriver/chromedriver");

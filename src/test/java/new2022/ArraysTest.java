@@ -1,18 +1,20 @@
 package new2022;
 
 import org.junit.jupiter.api.Test;
+import supportMethods.SupportFilesUsers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
-public class OrderArray {
+public class ArraysTest {
 
     @Test
     public void orderWordsArray(){
 
         // get the text from a file
-        String text = supportMethods.supportFiles.returnTextFile("src/main/java/supportMethods/products.txt");
+        String text = SupportFilesUsers.returnTextFile("src/main/java/supportMethods/products.txt");
         System.out.println("Raw text:"+ text);
 
         // convert to array
@@ -37,7 +39,7 @@ public class OrderArray {
     public void orderWordsArrayList(){
 
         // get the text from a file
-        String text = supportMethods.supportFiles.returnTextFile("src/main/java/supportMethods/products.txt");
+        String text = SupportFilesUsers.returnTextFile("src/main/java/supportMethods/products.txt");
         System.out.println("Raw text:"+ text);
 
         // convert to array list
@@ -58,7 +60,21 @@ public class OrderArray {
             System.out.println(item);
         }
 
+        // convert to string
 
+        String converted = myList.toString();
+        System.out.println("Converted to string: "+ converted);
     }
+
+    @Test
+    public void sumIntArray(){
+        List<Integer> myarray = new ArrayList<>(Arrays.asList(1,5,7,8));
+        Integer sum = 0;
+        for (Integer item : myarray){
+            sum  = item + sum;
+        }
+        System.out.println(sum);
+    }
+
 
 }

@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class supportFiles {
+public class SupportFilesUsers {
 
     // create a method to read file and return an user array
 
