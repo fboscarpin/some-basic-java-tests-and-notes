@@ -123,3 +123,29 @@ Read a specific line of a csv file and add content to an array:
     String lineContent  = myBufferedReader.lines().skip(userIndex).findFirst().get();
     userDetailsArray = lineContent.split(",");
 
+**JUnit Assertions**
+
+For a string s:
+
+    Assert.assertTrue(s.contains("sh"));
+    Assert.assertTrue(s.startsWith("W"));
+    Assert.assertTrue(s.endsWith("en"));
+    Assert.assertFalse(s.isEmpty());
+
+**Strings**
+
+Get substring starting from a given index:
+
+    System.out.println(mySrt.substring(5));
+
+Format string (with placeholders):
+
+    String txt = "A %s summer evening in %d";
+    System.out.println(String.format(txt, "romantic", 2020));
+    Assert.assertEquals(String.format(txt, "romantic", 2020), "A romantic summer evening in 2020");
+
+Append strings:
+
+    StringBuilder myBuilder = new StringBuilder();
+    myBuilder.append("Sum");
+
