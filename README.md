@@ -65,21 +65,50 @@ Dependency:
         <version>4.1.2</version>
     </dependency>
 
-Create (web)driver:
+Create the driver:
 
     public static WebDriver getDriver(){
-        System.setProperty("webdriver.chrome.driver","/Users/fabio/Documents/Chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver","<path in your machine>"); 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }
+    
+To manage webdriver via Maven, use the following code:
 
-Locators:
+    WebDriverManager.chromedriver().setup();
+    
+And import the following maven dependency:
+
+    <dependency>
+     <groupId>io.github.bonigarcia</groupId>
+     <artifactId>webdrivermanager</artifactId>
+     <version>5.1.0</version>
+    </dependency>
+
+Locators examples:
 
     WebElement userField = driver.findElement(By.id("user-name"));
     WebElement passField = driver.findElement(By.id("password"));
     WebElement submit = driver.findElement(By.xpath("//*[@class='submit-button btn_action']"));
+    
+    link: 
+    1. //a[text()='Features']
+    2. //a[contains(text(),'Features')] --recommended
+
+    button:
+    //button[@type='button' and @class='btn']
+    //button[contains(text(),'Sign Up')]
+    //div[@class='dropdown']//button[@type='button' and @class='btn btn-secondary dropdown-toggle' and @id='dropdownMenuButton']
+    //button[@id='dropdownMenuButton']
+
+    preceding-sibling:
+    //a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input
+
+    parent & preceding-sibling:
+    //a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']
+
 
 **Array and ArrayList**
 
@@ -122,6 +151,15 @@ Read a specific line of a csv file and add content to an array:
     BufferedReader myBufferedReader = new BufferedReader(myReader);
     String lineContent  = myBufferedReader.lines().skip(userIndex).findFirst().get();
     userDetailsArray = lineContent.split(",");
+    
+ **Read and get properties**
+ 
+    reader = new FileReader("<path to your properties file>");
+    Properties propertiesRead = new Properties();
+    propertiesRead.load(reader);
+    reader.close();
+    return propertyValue = propertiesRead.getProperty(propertyName);
+ 
 
 **JUnit Assertions**
 
@@ -148,4 +186,7 @@ Append strings:
 
     StringBuilder myBuilder = new StringBuilder();
     myBuilder.append("Sum");
+
+
+
 
