@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="java.test" />
         <module name="my-java-learnings" />
+        <module name="some-basic-java-tests-and-notes" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

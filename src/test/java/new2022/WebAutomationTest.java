@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import supportMethods.SupportFilesUsers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static supportMethods.SeleniumSupport.getDriver;
 
 public class WebAutomationTest {
@@ -37,8 +41,6 @@ public class WebAutomationTest {
         userField.sendKeys(username);
         passField.sendKeys(password);
         submit.click();
-
-//        driver.quit();
     }
 
 }
