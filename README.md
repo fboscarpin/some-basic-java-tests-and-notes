@@ -55,60 +55,6 @@ Create and print HashMap
     System.out.println(map);
     map.forEach((k, v) -> System.out.println("Key:"+k + " / Value:"+v));
 
-**Selenium**
-
-Dependency:
-
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.1.2</version>
-    </dependency>
-
-Create the driver:
-
-    public static WebDriver getDriver(){
-        System.setProperty("webdriver.chrome.driver","<path in your machine>"); 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        return driver;
-    }
-    
-To manage webdriver via Maven, use the following code:
-
-    WebDriverManager.chromedriver().setup();
-    
-And import the following maven dependency:
-
-    <dependency>
-     <groupId>io.github.bonigarcia</groupId>
-     <artifactId>webdrivermanager</artifactId>
-     <version>5.1.0</version>
-    </dependency>
-
-Locators examples:
-
-    WebElement userField = driver.findElement(By.id("user-name"));
-    WebElement passField = driver.findElement(By.id("password"));
-    WebElement submit = driver.findElement(By.xpath("//*[@class='submit-button btn_action']"));
-    
-    link: 
-    1. //a[text()='Features']
-    2. //a[contains(text(),'Features')] --recommended
-
-    button:
-    //button[@type='button' and @class='btn']
-    //button[contains(text(),'Sign Up')]
-    //div[@class='dropdown']//button[@type='button' and @class='btn btn-secondary dropdown-toggle' and @id='dropdownMenuButton']
-    //button[@id='dropdownMenuButton']
-
-    preceding-sibling:
-    //a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input
-
-    parent & preceding-sibling:
-    //a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']
-
 
 **Array and ArrayList**
 
@@ -188,5 +134,58 @@ Append strings:
     myBuilder.append("Sum");
 
 
+**Selenium**
+
+Dependency:
+
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.1.2</version>
+    </dependency>
+
+Create the driver:
+
+    public static WebDriver getDriver(){
+        System.setProperty("webdriver.chrome.driver","<path in your machine>"); 
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driver;
+    }
+    
+To manage webdriver via Maven, use the following code:
+
+    WebDriverManager.chromedriver().setup();
+    
+And import the following maven dependency:
+
+    <dependency>
+     <groupId>io.github.bonigarcia</groupId>
+     <artifactId>webdrivermanager</artifactId>
+     <version>5.1.0</version>
+    </dependency>
+
+Locators examples:
+
+    WebElement userField = driver.findElement(By.id("user-name")); // other for By: name, LinkText, className, TagName, partialLinkText, CssSelector // https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/By.html
+    WebElement passField = driver.findElement(By.id("password"));
+    WebElement submit = driver.findElement(By.xpath("//*[@class='submit-button btn_action']"));
+    
+    link: 
+    1. //a[text()='Features']
+    2. //a[contains(text(),'Features')] --recommended
+
+    button:
+    //button[@type='button' and @class='btn']
+    //button[contains(text(),'Sign Up')]
+    //div[@class='dropdown']//button[@type='button' and @class='btn btn-secondary dropdown-toggle' and @id='dropdownMenuButton']
+    //button[@id='dropdownMenuButton']
+
+    preceding-sibling:
+    //a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input
+
+    parent & preceding-sibling:
+    //a[text()='test2 test2']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']
 
 
